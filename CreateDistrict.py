@@ -117,7 +117,8 @@ class fixer:
                 roses_html_str = roses_body_el.get_attribute("innerHTML")
 
                 roses_html_obj = HTML(html=roses_html_str)
-                manage = driver.find_element(by=By.XPATH, value='//*[@id="SRCH_REC1"]/div[4]/a')
+                # manage = driver.find_element(by=By.XPATH, value='//*[@id="SRCH_REC1"]/div[4]/a')
+                manage = driver.find_element(by=By.LINK_TEXT, value='Manage District')
                 manage.click()
 
             except Exception as e:
@@ -127,6 +128,7 @@ class fixer:
             # fetch district name, city, and state
             try:
                 district_name = driver.find_element(by=By.XPATH, value='/html/body/div/div[3]/div/div/div/table/tbody/tr/td[1]/a').text
+
 
                 city_state = driver.find_element(by=By.XPATH, value='/html/body/div/div[3]/div/div/div/table/tbody/tr/td[2]').text
                 print('Found district name + state: ' + district_name + ' ' + city_state)
