@@ -28,7 +28,6 @@ class fixer:
 
             connected_html_obj = HTML(html=connected_html_str)
             time.sleep(2)
-            print('Loaded connected login page')
         except Exception as e:
             print("Error: Could not load connected login page " + str(e))
             sys.exit(1)
@@ -38,7 +37,6 @@ class fixer:
             driver.find_element(By.NAME, "loginUserName").send_keys(roses.u)
             driver.find_element(By.NAME, "loginPassword").send_keys(roses.cep + Keys.ENTER)
             time.sleep(2)
-            print('Logged into connected')
         except Exception as e:
             print("Error: Could not login to connected " + str(e))
             sys.exit(1)
@@ -76,7 +74,6 @@ class fixer:
 
                 roses_html_obj = HTML(html=roses_html_str)
                 time.sleep(2)
-                print('Loaded roses login page')
 
             except Exception as e:
                 print("Error: Could not load roses login page " + str(e))
@@ -87,7 +84,6 @@ class fixer:
                 driver.find_element(By.NAME, "username").send_keys(roses.u)
                 driver.find_element(By.NAME, "password").send_keys(roses.p + Keys.ENTER)
                 time.sleep(3)
-                print('Logged into roses')
             except Exception as e:
                 print("Error: Could not login to roses " + str(e))
                 sys.exit(1)
@@ -100,7 +96,6 @@ class fixer:
 
                 roses_html_obj = HTML(html=roses_html_str)
                 time.sleep(2)
-                print('Loaded roses search page')
             except Exception as e:
                 print("Error: Could not load roses search page " + str(e))
                 sys.exit(1)
@@ -111,7 +106,7 @@ class fixer:
             try:
                 driver.find_element(By.NAME, "acctNm").send_keys(self.actual_roses_name + Keys.ENTER)
                 time.sleep(3)
-                print('Found roses name')
+
             except Exception as e:
                 print("Error: Could not search roses name  " + str(e))
                 sys.exit(1)
@@ -124,7 +119,6 @@ class fixer:
                 roses_html_obj = HTML(html=roses_html_str)
                 manage = driver.find_element(by=By.XPATH, value='//*[@id="SRCH_REC1"]/div[4]/a')
                 manage.click()
-                print('Found manage link')
 
             except Exception as e:
                 print("Error: Could not find manage link " + str(e))
@@ -221,7 +215,6 @@ class fixer:
 
                 roses_html_obj = HTML(html=roses_html_str)
                 time.sleep(2)
-                print('Loaded manage educational identity search page')
 
             except Exception as e:
                 print("Error: Could not load manage educational identity page " + str(e))
@@ -237,7 +230,6 @@ class fixer:
                 driver.find_element(By.NAME, "city").send_keys(city + Keys.ENTER)
 
                 time.sleep(3)
-                print('Searching district in manage educational identity')
 
             except Exception as e:
                 print("Error: Could not search district in manage education identity " + str(e))
@@ -249,7 +241,6 @@ class fixer:
                 edit_mei.click()
 
                 time.sleep(3)
-                print('Found district')
 
             except Exception as e:
                 print("Error: Could not find edit button for district in manage educational identity")
@@ -261,11 +252,11 @@ class fixer:
                 oks_oracle_id = driver.find_element(by=By.XPATH, value='//*[@id="page_content"]/div/div/form/div[23]/div/div[1]/div[4]').text
                 print('--------------------------------------------------------')
                 print('Does the oracle id you entered match what was returned?')
-                print('Entered: ' + self.oracle_id + ' Returned: ' + oks_oracle_id)
+                print('Entered:  ' + self.oracle_id + '\n' + 'Returned: ' + oks_oracle_id)
                 print('--------------------------------------------------------')
                 print('If yes create new access manager customer using below info' + '\n')
-                print('Access Manager Name:     ' + self.actual_roses_name + ' (' + abbrev_state + ') ' + self.oracle_id)
-                print('XID:                     ' + xid)
+                print('Access Manager Name:' + '\n' + self.actual_roses_name + ' (' + abbrev_state + ') ' + self.oracle_id)
+                print('XID:' + '\n' + xid)
 
             except Exception as e:
                 print("Error: Could not fetch XID " + str(e))
