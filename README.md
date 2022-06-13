@@ -12,7 +12,7 @@
 4. Double check returned values before entering them in Access Manager create page
 
 ## Sample return:
-
+### 
 Enter Oracle ID: 999999
 Loaded connected login page
 Logged into connected
